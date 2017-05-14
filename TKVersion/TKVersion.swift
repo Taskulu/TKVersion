@@ -21,13 +21,17 @@ public class Version: Comparable {
     }
 
     class func stringToArray(version: String) -> [Int] {
-        return version.components(separatedBy: ".").map { (i) -> Int in
+        var array = version.components(separatedBy: ".").map { (i) -> Int in
             return Int(i) ?? 0
         }
+        while let last = array.last, last == 0 {
+            array.removeLast()
+        }
+        return array
     }
 
     public static func ==(lhs: Version, rhs: Version) -> Bool {
-        return lhs.stringValue == rhs.stringValue
+        return lhs.arrayValue == rhs.arrayValue
     }
 
     public static func <(lhs: Version, rhs: Version) -> Bool {

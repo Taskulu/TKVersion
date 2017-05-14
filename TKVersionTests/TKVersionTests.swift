@@ -51,8 +51,10 @@ class TKVersionTests: XCTestCase {
         let a = Version("1.1.0")
         let b = Version("1.1.1")
         let c = Version("1.1.1")
+        let d = Version("1.1")
         XCTAssert(a != b)
         XCTAssert(b == c)
+        XCTAssert(a == d)
     }
 
     func testEqualOrMore() {

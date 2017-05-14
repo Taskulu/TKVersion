@@ -32,5 +32,43 @@ class TKVersionTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+
+    func testLess() {
+        let a = Version("1.0.0")
+        let b = Version("1.0.1")
+        XCTAssert(a < b)
+        XCTAssert(!(b < a))
+    }
+
+    func testMore() {
+        let a = Version("1.1.0")
+        let b = Version("1.0.1")
+        XCTAssert(a > b)
+        XCTAssert(!(b > a))
+    }
+
+    func testEqual() {
+        let a = Version("1.1.0")
+        let b = Version("1.1.1")
+        let c = Version("1.1.1")
+        XCTAssert(a != b)
+        XCTAssert(b == c)
+    }
+
+    func testEqualOrMore() {
+        let a = Version("1.1.2")
+        let b = Version("1.1.1")
+        let c = Version("1.1.1")
+        XCTAssert(a >= b)
+        XCTAssert(b >= c)
+    }
+
+    func testEqualOrLess() {
+        let a = Version("2.1.2")
+        let b = Version("2.2.2")
+        let c = Version("2.2.2")
+        XCTAssert(a <= b)
+        XCTAssert(b <= c)
+    }
     
 }

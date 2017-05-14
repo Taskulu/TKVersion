@@ -8,15 +8,15 @@
 
 import Foundation
 
-class Version: Comparable {
-    var stringValue = "0.0.0"
+public class Version: Comparable {
+    public var stringValue = "0.0.0"
     var arrayValue:[Int] {
         get {
             return Version.stringToArray(version: self.stringValue)
         }
     }
 
-    init(_ string: String) {
+    public init(_ string: String) {
         self.stringValue = string
     }
 

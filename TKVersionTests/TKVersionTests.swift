@@ -34,41 +34,41 @@ class TKVersionTests: XCTestCase {
     }
 
     func testLess() {
-        let a = Version("1.0.0")
-        let b = Version("1.0.1")
+        let a = TKVersion("1.0.0")
+        let b = TKVersion("1.0.1")
         XCTAssert(a < b)
         XCTAssert(!(b < a))
     }
 
     func testMore() {
-        let a = Version("1.1.0")
-        let b = Version("1.0.1")
+        let a = TKVersion("1.1.0")
+        let b = TKVersion("1.0.1")
         XCTAssert(a > b)
         XCTAssert(!(b > a))
     }
 
     func testEqual() {
-        let a = Version("1.1.0")
-        let b = Version("1.1.1")
-        let c = Version("1.1.1")
-        let d = Version("1.1")
+        let a = TKVersion("1.1.0")
+        let b = TKVersion("1.1.1")
+        let c = TKVersion("1.1.1")
+        let d = TKVersion("1.1")
         XCTAssert(a != b)
         XCTAssert(b == c)
         XCTAssert(a == d)
     }
 
     func testEqualOrMore() {
-        let a = Version("1.1.2")
-        let b = Version("1.1.1")
-        let c = Version("1.1.1")
+        let a = TKVersion("1.1.2")
+        let b = TKVersion("1.1.1")
+        let c = TKVersion("1.1.1")
         XCTAssert(a >= b)
         XCTAssert(b >= c)
     }
 
     func testEqualOrLess() {
-        let a = Version("2.1.2")
-        let b = Version("2.2.2")
-        let c = Version("2.2.2")
+        let a = TKVersion("2.1.2")
+        let b = TKVersion("2.2.2")
+        let c = TKVersion("2.2.2")
         XCTAssert(a <= b)
         XCTAssert(b <= c)
     }

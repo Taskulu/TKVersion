@@ -8,11 +8,16 @@
 
 import Foundation
 
-public class Version: Comparable {
+public class TKVersion: Comparable, CustomStringConvertible {
     public var stringValue = "0.0.0"
+
+    public var description: String {
+        return "TKVersion: \(self.stringValue)"
+    }
+
     var arrayValue:[Int] {
         get {
-            return Version.stringToArray(version: self.stringValue)
+            return TKVersion.stringToArray(version: self.stringValue)
         }
     }
 
@@ -30,23 +35,23 @@ public class Version: Comparable {
         return array
     }
 
-    public static func ==(lhs: Version, rhs: Version) -> Bool {
+    public static func ==(lhs: TKVersion, rhs: TKVersion) -> Bool {
         return lhs.arrayValue == rhs.arrayValue
     }
 
-    public static func <(lhs: Version, rhs: Version) -> Bool {
+    public static func <(lhs: TKVersion, rhs: TKVersion) -> Bool {
         return lhs.arrayValue.lexicographicallyPrecedes(rhs.arrayValue)
     }
 
-    public static func <=(lhs: Version, rhs: Version) -> Bool {
+    public static func <=(lhs: TKVersion, rhs: TKVersion) -> Bool {
         return lhs < rhs || lhs == rhs
     }
 
-    public static func >=(lhs: Version, rhs: Version) -> Bool {
+    public static func >=(lhs: TKVersion, rhs: TKVersion) -> Bool {
         return lhs > rhs || rhs == lhs
     }
 
-    public static func >(lhs: Version, rhs: Version) -> Bool {
+    public static func >(lhs: TKVersion, rhs: TKVersion) -> Bool {
         return rhs.arrayValue.lexicographicallyPrecedes(lhs.arrayValue)
     }
 }
